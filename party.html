@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nisarga & Vidhath | Party Invitation</title>
+  <title>Vidhath & Nisarga | Wedding Invitation</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
     :root {
@@ -238,7 +240,7 @@
       margin-top: 4px;
     }
 
-    /* Event Cards */
+    /* Event Card */
     .event-card-content {
       width: 100%;
       max-width: 500px;
@@ -280,6 +282,65 @@
       box-shadow: 0 14px 30px rgba(74, 107, 93, 0.35);
     }
 
+    /* Digital Guestbook */
+    .wishes-content {
+      width: 100%;
+      max-width: 520px;
+    }
+    .wishes-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--sage-dark);
+      margin-bottom: 10px;
+    }
+    .wishes-content p { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+    
+    .input-field, .textarea-field {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #E2E8E4;
+      background: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      outline: none;
+    }
+    .input-field:focus, .textarea-field:focus { border-color: var(--sage-dark); }
+    
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      border-radius: 50px;
+      border: none;
+      background: var(--champagne-gold);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover { background: #B38E46; transform: translateY(-2px); }
+
+    .wishes-feed {
+      margin-top: 25px;
+      text-align: left;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .wish-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      border-left: 4px solid var(--blush-pink);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+    }
+    .wish-author { font-weight: 600; font-size: 0.9rem; color: var(--sage-dark); }
+    .wish-text { font-size: 0.88rem; color: #555; margin-top: 4px; }
+
     /* Footer */
     .footer-content {
       font-size: 0.95rem;
@@ -308,11 +369,11 @@
   <div class="main-container">
     
     <div class="section-block reveal">
-      <div class="badge">Party Invitation</div>
+      <div class="badge">Wedding Invitation</div>
       <h1>
-        Nisarga
-        <span>&</span>
         Vidhath
+        <span>&</span>
+        Nisarga
       </h1>
       <p style="color: var(--champagne-gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px;">
         September 24, 2026 • Chikkamagaluru
@@ -326,7 +387,7 @@
 
     <div class="section-block reveal">
       <p class="quote">
-        "With immense joy and excitement, we cordially invite you to celebrate and party with Nisarga & Vidhath!"
+        "With the blessings of our elders and family, we cordially invite you to celebrate the marriage of Vidhath & Nisarga."
       </p>
       <div class="divider"></div>
 
@@ -358,7 +419,7 @@
       </div>
 
       <div class="scroll-hint">
-        <span>Scroll For Wedding Venue</span>
+        <span>Scroll For Venue</span>
         <i class="fa-solid fa-chevron-down"></i>
       </div>
     </div>
@@ -383,7 +444,7 @@
         </div>
 
         <a href="https://maps.app.goo.gl/WYYrPP6vLD6joqR38" target="_blank" class="btn-map">
-          <i class="fa-solid fa-map-location-dot"></i> Open Wedding Location in Google Maps
+          <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
         </a>
       </div>
 
@@ -399,21 +460,21 @@
         
         <div class="event-info">
           <i class="fa-regular fa-calendar-check"></i>
-          <span><strong>[Party Date - e.g., September 24, 2026]</strong></span>
+          <span><strong>September 25, 2026</strong></span>
         </div>
 
         <div class="event-info">
           <i class="fa-regular fa-clock"></i>
-          <span><strong>[Party Time - e.g., 7:00 PM Onwards]</strong></span>
+          <span><strong>7:00 PM Onwards</strong></span>
         </div>
 
         <div class="event-info">
           <i class="fa-solid fa-location-dot"></i>
-          <span><strong>[Party Venue / Location Name, Chikkamagaluru]</strong></span>
+          <span><strong>Khandya Planters Club, Chikkamagaluru</strong></span>
         </div>
 
-        <a href="YOUR_PARTY_GOOGLE_MAPS_LINK_HERE" target="_blank" class="btn-map">
-          <i class="fa-solid fa-map-location-dot"></i> Open Party Location in Google Maps
+        <a href="https://maps.app.goo.gl/DCRZBEQfRUbz3rbv8" target="_blank" class="btn-map">
+          <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
         </a>
       </div>
     </div>
@@ -421,7 +482,7 @@
     <div class="section-block reveal" style="min-height: 40vh; margin-bottom: 20px;">
       <div class="footer-content">
         With Best Compliments From:<br><br>
-        <strong>The Family & Friends of Nisarga & Vidhath</strong>
+        <strong>The Family & Friends of Vidhath & Nisarga</strong>
       </div>
     </div>
 
@@ -432,7 +493,7 @@
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.25
+      threshold: 0.25 // Requires 25% of the block to be scrolled into view
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -446,47 +507,53 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // 2. Background Music Autoplay & Toggle Handler
-    const musicBtn = document.getElementById('musicToggle');
-    const bgMusic = document.getElementById('bgMusic');
-    let isPlaying = false;
+const musicBtn = document.getElementById('musicToggle');
+const bgMusic = document.getElementById('bgMusic');
+let isPlaying = false;
 
-    function playAudio() {
-      bgMusic.play().then(() => {
-        isPlaying = true;
-        musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-      }).catch(error => {
-        isPlaying = false;
-        musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
-      });
-    }
+// Function to play audio safely
+function playAudio() {
+  bgMusic.play().then(() => {
+    isPlaying = true;
+    musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+  }).catch(error => {
+    // Autoplay prevented by browser policy until interaction
+    isPlaying = false;
+    musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+  });
+}
 
-    window.addEventListener('load', () => {
-      playAudio();
-    });
+// Try playing on page load immediately
+window.addEventListener('load', () => {
+  playAudio();
+});
 
-    function startAudioOnFirstTouch() {
-      if (!isPlaying) {
-        playAudio();
-      }
-      document.removeEventListener('click', startAudioOnFirstTouch);
-      document.removeEventListener('touchstart', startAudioOnFirstTouch);
-      document.removeEventListener('scroll', startAudioOnFirstTouch);
-    }
+// Fallback: Enable audio on the very first touch, click, or scroll anywhere on the screen
+function startAudioOnFirstTouch() {
+  if (!isPlaying) {
+    playAudio();
+  }
+  // Remove event listeners once music starts
+  document.removeEventListener('click', startAudioOnFirstTouch);
+  document.removeEventListener('touchstart', startAudioOnFirstTouch);
+  document.removeEventListener('scroll', startAudioOnFirstTouch);
+}
 
-    document.addEventListener('click', startAudioOnFirstTouch);
-    document.addEventListener('touchstart', startAudioOnFirstTouch);
-    document.addEventListener('scroll', startAudioOnFirstTouch);
+document.addEventListener('click', startAudioOnFirstTouch);
+document.addEventListener('touchstart', startAudioOnFirstTouch);
+document.addEventListener('scroll', startAudioOnFirstTouch);
 
-    musicBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isPlaying) {
-        bgMusic.pause();
-        musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
-        isPlaying = false;
-      } else {
-        playAudio();
-      }
-    });
+// Manual Toggle Button
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // Stop global click listener from triggering
+  if (isPlaying) {
+    bgMusic.pause();
+    musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+    isPlaying = false;
+  } else {
+    playAudio();
+  }
+});
 
     // 3. Live Countdown Timer Script
     const weddingDate = new Date("September 24, 2026 10:00:00").getTime();
@@ -505,6 +572,42 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // 4. Interactive Confetti Burst + Google Sheet Data Saving
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwjnEjJN8WxfSXZreyXXyGWyqkEFgb8A1hQjjsxgKdpBm-ZEEctUNudEdKj-KRi2Ubw/exec"; // <--- Paste your copied Web App URL inside quotes!
+
+document.getElementById("wishForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("guestName").value;
+  const message = document.getElementById("guestMessage").value;
+
+  // A. Display message on screen locally
+  const feed = document.getElementById("wishesFeed");
+  const card = document.createElement("div");
+  card.className = "wish-card";
+  card.innerHTML = `<div class="wish-author">${name}</div><div class="wish-text">${message}</div>`;
+  feed.prepend(card);
+
+  // B. Trigger Confetti Animation
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.6 },
+    colors: ['#C5A059', '#F4ACB7', '#4A6B5D']
+  });
+
+  // C. Send data silently to your Google Sheet
+  fetch(GOOGLE_SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: name, message: message })
+  });
+
+  // D. Reset input fields
+  document.getElementById("guestName").value = "";
+  document.getElementById("guestMessage").value = "";
+});
   </script>
 </body>
 </html>
