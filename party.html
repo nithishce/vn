@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nisarga & Vidhath | Party Invitation</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --sage-bg: #EAEFE9;
+      --sage-dark: #4A6B5D;
+      --blush-pink: #F4ACB7;
+      --blush-soft: #FFF0F2;
+      --champagne-gold: #C5A059;
+      --text-main: #2C3E35;
+      --white-glass: rgba(255, 255, 255, 0.90);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #FDFBF7 0%, #EAEFEA 50%, #F5ECEB 100%);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* Floating Background Accents */
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: 0;
+      opacity: 0.45;
+      animation: float 12s ease-in-out infinite alternate;
+    }
+    .shape-1 { width: 350px; height: 350px; background: var(--blush-pink); top: -60px; left: -60px; }
+    .shape-2 { width: 400px; height: 400px; background: #C2D5C6; bottom: -60px; right: -60px; animation-delay: -6s; }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 40px) scale(1.1); }
+    }
+
+    /* Floating Music Toggle Button */
+    .music-btn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 100;
+      background: var(--white-glass);
+      border: 1px solid var(--champagne-gold);
+      color: var(--sage-dark);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+      background: var(--sage-dark);
+      color: #FFF;
+    }
+
+    /* Container */
+    .main-container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Full Screen Section Layouts */
+    .section-block {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px 20px;
+      background: var(--white-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(74, 107, 93, 0.08);
+      position: relative;
+    }
+
+    /* Scroll Reveal Transition Effect */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px) scale(0.96);
+      transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Scroll Down Indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
+
+    /* Typography & Badges */
+    .badge {
+      display: inline-block;
+      padding: 8px 24px;
+      background: var(--blush-soft);
+      color: var(--sage-dark);
+      border: 1px solid rgba(244, 172, 183, 0.5);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    h1 span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: var(--champagne-gold);
+      margin: 10px 0;
+    }
+
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #444;
+      line-height: 1.8;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 70px;
+      height: 2px;
+      background: var(--champagne-gold);
+      margin: 30px auto;
+      position: relative;
+    }
+    .divider::after {
+      content: '🌸';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFF;
+      padding: 0 8px;
+      font-size: 0.85rem;
+    }
+
+    /* Countdown Section */
+    .timer-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .timer-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 18px;
+      padding: 16px 20px;
+      min-width: 80px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .timer-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+    .timer-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Event Cards */
+    .event-card-content {
+      width: 100%;
+      max-width: 500px;
+    }
+    .event-card-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--sage-dark);
+      margin-bottom: 20px;
+    }
+    .event-info {
+      font-size: 1.05rem;
+      margin: 15px 0;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .event-info i { color: var(--champagne-gold); font-size: 1.2rem; }
+
+    .btn-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--sage-dark) 0%, #365045 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(74, 107, 93, 0.25);
+      transition: all 0.3s ease;
+    }
+    .btn-map:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(74, 107, 93, 0.35);
+    }
+
+    /* Footer */
+    .footer-content {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .footer-content strong { color: var(--sage-dark); }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.5rem; }
+      h1 span { font-size: 1.6rem; }
+      .timer-card { min-width: 60px; padding: 10px 12px; }
+      .timer-num { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <button class="music-btn" id="musicToggle" title="Toggle Background Music">
+    <i class="fa-solid fa-music"></i>
+  </button>
+  <audio id="bgMusic" autoplay loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=soft-romantic-piano-112328.mp3"></audio>
+
+  <div class="main-container">
+    
+    <div class="section-block reveal">
+      <div class="badge">Party Invitation</div>
+      <h1>
+        Nisarga
+        <span>&</span>
+        Vidhath
+      </h1>
+      <p style="color: var(--champagne-gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px;">
+        September 24, 2026 • Chikkamagaluru
+      </p>
+      
+      <div class="scroll-hint">
+        <span>Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <p class="quote">
+        "With immense joy and excitement, we cordially invite you to celebrate and party with Nisarga & Vidhath!"
+      </p>
+      <div class="divider"></div>
+
+      <div class="scroll-hint">
+        <span>Keep Scrolling</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="timer-title">Counting Down To The Big Day</div>
+      <div class="timer-grid">
+        <div class="timer-card">
+          <div class="timer-num" id="days">00</div>
+          <div class="timer-label">Days</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-num" id="hours">00</div>
+          <div class="timer-label">Hours</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-num" id="mins">00</div>
+          <div class="timer-label">Mins</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-num" id="secs">00</div>
+          <div class="timer-label">Secs</div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll For Wedding Venue</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="event-card-content">
+        <h2>Wedding & Reception</h2>
+        
+        <div class="event-info">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span><strong>September 24, 2026</strong></span>
+        </div>
+
+        <div class="event-info">
+          <i class="fa-regular fa-clock"></i>
+          <span>10:00 AM Onwards <i>(Reception follows immediately)</i></span>
+        </div>
+
+        <div class="event-info">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Vokkaligara Samudhaya Bhavana, Chikkamagaluru</span>
+        </div>
+
+        <a href="https://maps.app.goo.gl/WYYrPP6vLD6joqR38" target="_blank" class="btn-map">
+          <i class="fa-solid fa-map-location-dot"></i> Open Wedding Location in Google Maps
+        </a>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll For Party Details</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="event-card-content">
+        <h2>🎉 The Celebration Party</h2>
+        
+        <div class="event-info">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span><strong>[Party Date - e.g., September 24, 2026]</strong></span>
+        </div>
+
+        <div class="event-info">
+          <i class="fa-regular fa-clock"></i>
+          <span><strong>[Party Time - e.g., 7:00 PM Onwards]</strong></span>
+        </div>
+
+        <div class="event-info">
+          <i class="fa-solid fa-location-dot"></i>
+          <span><strong>[Party Venue / Location Name, Chikkamagaluru]</strong></span>
+        </div>
+
+        <a href="YOUR_PARTY_GOOGLE_MAPS_LINK_HERE" target="_blank" class="btn-map">
+          <i class="fa-solid fa-map-location-dot"></i> Open Party Location in Google Maps
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block reveal" style="min-height: 40vh; margin-bottom: 20px;">
+      <div class="footer-content">
+        With Best Compliments From:<br><br>
+        <strong>The Family & Friends of Nisarga & Vidhath</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. Strict Intersection Observer for Scroll Reveals
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.25
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 2. Background Music Autoplay & Toggle Handler
+    const musicBtn = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    function playAudio() {
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      }).catch(error => {
+        isPlaying = false;
+        musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+      });
+    }
+
+    window.addEventListener('load', () => {
+      playAudio();
+    });
+
+    function startAudioOnFirstTouch() {
+      if (!isPlaying) {
+        playAudio();
+      }
+      document.removeEventListener('click', startAudioOnFirstTouch);
+      document.removeEventListener('touchstart', startAudioOnFirstTouch);
+      document.removeEventListener('scroll', startAudioOnFirstTouch);
+    }
+
+    document.addEventListener('click', startAudioOnFirstTouch);
+    document.addEventListener('touchstart', startAudioOnFirstTouch);
+    document.addEventListener('scroll', startAudioOnFirstTouch);
+
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isPlaying) {
+        bgMusic.pause();
+        musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+        isPlaying = false;
+      } else {
+        playAudio();
+      }
+    });
+
+    // 3. Live Countdown Timer Script
+    const weddingDate = new Date("September 24, 2026 10:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+
+      if (diff > 0) {
+        document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById("mins").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById("secs").innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+      } else {
+        document.querySelector(".timer-title").innerHTML = "🎉 The Celebration Begins Today! 🎉";
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
